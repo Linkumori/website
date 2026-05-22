@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Linkumori — Strip the Trackers</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Courier+Prime:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+
+:root {
+  --paper:  #f4f1ea;
+  --paper2: #ede9e0;
+  --ink:    #111110;
+  --blue:   #2563eb;
+  --red:    #c8281e;
+  --muted:  #7a7570;
+  --rule:   #ccc8be;
+  --F: 'Bebas Neue', sans-serif;
+  --M: 'Courier Prime', monospace;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--M);
+  font-size: 15px;
+  line-height: 1.6;
+  cursor: crosshair;
+}
+
+/* ─── GRAIN OVERLAY ──────────────────────────────────── */
+body::after {
+  content:'';
+  position:fixed; inset:0; z-index:999; pointer-events:none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)' opacity='0.045'/%3E%3C/svg%3E");
+  mix-blend-mode: multiply;
+}
+
+/* ─── NAV ─────────────────────────────────────────────── */
+nav {
+  position: fixed; top:0; left:0; right:0; z-index:100;
+  border-bottom: 2px solid var(--ink);
+  background: var(--paper);
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 40px; height: 56px;
+}
+.nav-brand {
+  display: flex; align-items: center; gap: 10px;
+  font-family: var(--F); font-size: 22px; letter-spacing: .04em;
+  text-decoration: none; color: var(--ink);
+}
+.nav-links { display:flex; gap:36px; }
+.nav-links a {
+  font-family: var(--M); font-size:12px; letter-spacing:.1em;
+  text-transform:uppercase; color:var(--muted);
+  text-decoration:none; transition: color .15s;
+}
+.nav-links a:hover { color: var(--ink); }
+.nav-install {
+  font-family: var(--F); font-size:16px; letter-spacing:.06em;
+  background: var(--blue); color:#fff;
+  padding: 8px 20px; text-decoration:none;
+  clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 8px 100%, 0 calc(100% - 8px));
+  transition: background .15s;
+}
+.nav-install:hover { background: #1748c8; }
+
+/* ─── HERO ────────────────────────────────────────────── */
+.hero {
+  min-height: 100vh;
+  display: grid; grid-template-rows: 1fr auto;
+  padding: 56px 0 0;
+  border-bottom: 2px solid var(--ink);
+  overflow: hidden;
+}
+
+.hero-top {
+  display: grid;
+  grid-template-columns: 1fr 1px 1fr;
+  min-height: calc(100vh - 56px - 180px);
+}
+.hero-vr { background: var(--ink); }
+
+.hero-left {
+  padding: 64px 40px 48px;
+  display: flex; flex-direction:column; justify-content: space-between;
+}
+.hero-right {
+  padding: 64px 40px 48px;
+  display:flex; flex-direction:column; justify-content:flex-end;
+}
+
+.hero-eyebrow {
+  font-family: var(--M); font-size: 11px; letter-spacing:.14em;
+  text-transform:uppercase; color: var(--muted);
+  border-left: 3px solid var(--blue); padding-left: 10px;
+  margin-bottom: 20px;
+}
+
+h1 {
+  font-family: var(--F);
+  font-size: clamp(80px, 11vw, 160px);
+  line-height: .92;
+  letter-spacing: -.01em;
+}
+h1 em { font-style:normal; color:var(--blue); }
+
+.hero-desc {
+  font-family: var(--M); font-size: 15px;
+  color: var(--muted); max-width: 420px;
+  margin-top: 32px; line-height: 1.8;
+  border-top: 1px solid var(--rule); padding-top: 20px;
+}
+
+/* ─── URL DEMO (hero right) ───────────────────────────── */
+.url-demo-label {
+  font-size:11px; letter-spacing:.1em; text-transform:uppercase;
+  color:var(--muted); margin-bottom:12px;
+}
+.url-demo-box {
+  border: 2px solid var(--ink); padding: 24px;
+  background: var(--paper2); position: relative;
+}
+.url-demo-box::before {
+  content: 'BEFORE';
+  position:absolute; top:-12px; left:16px;
+  font-family:var(--F); font-size:14px; letter-spacing:.08em;
+  background: var(--paper); padding: 0 8px; color:var(--red);
+}
+
+/* URL text with redaction marks */
+.url-full {
+  font-family: var(--M); font-size: 13px;
+  line-height: 1.8; word-break: break-all;
+  color: var(--ink);
+}
+.url-clean  { color: var(--ink); }
+.url-sep    { color: var(--muted); }
+.url-params { display:inline; position:relative; }
+
+.param {
+  display: inline-block; position: relative;
+  color: var(--red);
+}
+.param::after {
+  content:'';
+  position:absolute; left:0; top:50%; height:2px;
+  background: var(--red);
+  width:0; transform: translateY(-50%);
+  animation: strike 0.4s ease-out forwards;
+}
+.param:nth-child(1)::after { animation-delay: 0.5s; }
+.param:nth-child(2)::after { animation-delay: 0.9s; }
+.param:nth-child(3)::after { animation-delay: 1.3s; }
+.param:nth-child(4)::after { animation-delay: 1.7s; }
+.param:nth-child(5)::after { animation-delay: 2.1s; }
+.param:nth-child(6)::after { animation-delay: 2.5s; }
+.param:nth-child(7)::after { animation-delay: 2.9s; }
+
+@keyframes strike { from { width:0; } to { width:100%; } }
+
+.url-result {
+  border: 2px solid var(--blue);
+  margin-top: 16px; padding: 24px;
+  background: #fff; position:relative;
+  animation: appear 0.4s ease forwards;
+  animation-delay: 3.5s;
+  opacity: 0;
+}
+.url-result::before {
+  content:'AFTER';
+  position:absolute; top:-12px; left:16px;
+  font-family:var(--F); font-size:14px; letter-spacing:.08em;
+  background:#fff; padding:0 8px; color:var(--blue);
+}
+.url-result .url-full { color: var(--blue); }
+
+@keyframes appear { from {opacity:0; transform:translateY(4px);} to {opacity:1; transform:none;} }
+
+/* ─── HERO FOOTER BAR ─────────────────────────────────── */
+.hero-bar {
+  border-top: 2px solid var(--ink);
+  display: grid; grid-template-columns: repeat(3, 1fr);
+}
+.hero-stat {
+  padding: 20px 32px;
+  border-right: 1px solid var(--rule);
+  display:flex; align-items:baseline; gap:12px;
+}
+.hero-stat:last-child { border-right:none; }
+.stat-n {
+  font-family:var(--F); font-size:40px; letter-spacing:-.02em;
+}
+.stat-n.blue { color:var(--blue); }
+.stat-l { font-size:12px; color:var(--muted); letter-spacing:.06em; text-transform:uppercase; }
+
+/* ─── SECTION WRAPPER ─────────────────────────────────── */
+.section { border-bottom: 2px solid var(--ink); }
+.wrap    { max-width:1200px; margin:0 auto; padding:0 40px; }
+
+/* ─── SECTION HEADER ──────────────────────────────────── */
+.s-head {
+  display:flex; align-items:baseline; gap:20px;
+  padding: 28px 0 0; border-bottom: 1px solid var(--rule);
+  margin-bottom: 0;
+}
+.s-num {
+  font-family:var(--F); font-size:13px; letter-spacing:.1em;
+  color:var(--muted);
+}
+.s-title {
+  font-family:var(--F); font-size: clamp(36px,4vw,56px);
+  letter-spacing:.01em; line-height:1;
+}
+.s-title em { font-style:normal; color:var(--blue); }
+
+/* ─── FEATURES ────────────────────────────────────────── */
+.feat-list { padding: 0; }
+
+.feat-row {
+  display:grid; grid-template-columns:80px 1fr 1fr;
+  border-bottom: 1px solid var(--rule);
+  min-height: 100px;
+  opacity:0; transform:translateY(16px);
+  transition: opacity .5s ease, transform .5s ease;
+}
+.feat-row.vis { opacity:1; transform:none; }
+
+.feat-index {
+  border-right: 1px solid var(--rule);
+  display:flex; align-items:center; justify-content:center;
+  font-family:var(--F); font-size:32px; color:var(--rule);
+  padding: 24px 0;
+}
+.feat-name {
+  border-right: 1px solid var(--rule);
+  padding: 28px 32px;
+  font-family:var(--F); font-size: clamp(22px, 2.5vw, 32px);
+  letter-spacing:.02em; display:flex; align-items:center; gap:12px;
+}
+.new-flag {
+  font-family:var(--M); font-size:10px; letter-spacing:.1em;
+  text-transform:uppercase; color:var(--blue);
+  border:1px solid var(--blue); padding:2px 6px;
+  vertical-align:middle;
+}
+.feat-desc {
+  padding: 28px 32px;
+  color: var(--muted); font-size:14px; line-height:1.75;
+  display:flex; align-items:center;
+}
+
+/* ─── COMPARE ─────────────────────────────────────────── */
+.compare-grid {
+  display:grid; grid-template-columns:1fr 2px 1fr;
+  padding: 48px 0;
+}
+.compare-vr { background:var(--ink); }
+.compare-col { padding: 0 40px; }
+.compare-col-head {
+  font-family:var(--F); font-size:28px; letter-spacing:.03em;
+  padding-bottom:16px; border-bottom:2px solid currentColor;
+  margin-bottom:24px;
+}
+.compare-col-head.dim { color:var(--muted); }
+.compare-col-head.bright { color:var(--blue); }
+
+.compare-item {
+  display:flex; align-items:flex-start; gap:10px;
+  padding: 10px 0; border-bottom:1px solid var(--rule);
+  font-size:13px;
+}
+.compare-item:last-child { border-bottom:none; }
+.ci-mark { flex-shrink:0; font-size:16px; line-height:1.6; }
+.ci-text { color:var(--muted); line-height:1.6; }
+.ci-text strong { color:var(--ink); font-weight:700; }
+
+/* ─── PRIVACY ─────────────────────────────────────────── */
+.privacy-inner {
+  display:grid; grid-template-columns: 320px 1fr;
+  min-height:400px;
+}
+.privacy-left {
+  border-right:2px solid var(--ink);
+  padding: 48px 40px;
+  display:flex; flex-direction:column; justify-content:space-between;
+  background:var(--ink); color:var(--paper);
+}
+.privacy-right { padding: 48px 48px; }
+
+.priv-title {
+  font-family:var(--F); font-size:clamp(48px,5vw,72px);
+  line-height:.9; letter-spacing:-.01em;
+  color:var(--paper);
+}
+.priv-title span { color:var(--blue); }
+
+.priv-zero {
+  font-family:var(--F); font-size:120px; line-height:1;
+  color:var(--blue); text-align:center;
+}
+.priv-zero-label {
+  font-size:11px; letter-spacing:.14em; text-transform:uppercase;
+  color: rgba(244,241,234,.4); text-align:center; margin-top:-8px;
+}
+
+.priv-points { list-style:none; }
+.priv-points li {
+  padding: 14px 0; border-bottom:1px solid rgba(244,241,234,.15);
+  font-size:13px; color:rgba(244,241,234,.65);
+  display:flex; gap:10px; align-items:flex-start;
+}
+.priv-points li::before {
+  content:'→'; color:var(--blue); flex-shrink:0;
+}
+
+.priv-body h3 {
+  font-family:var(--F); font-size:32px; margin-bottom:16px;
+}
+.priv-body p {
+  color:var(--muted); line-height:1.8; font-size:14px; margin-bottom:20px;
+}
+.pill-row { display:flex; gap:8px; flex-wrap:wrap; margin-top:24px; }
+.pill {
+  font-size:11px; letter-spacing:.08em; text-transform:uppercase;
+  border:1px solid var(--rule); padding:5px 12px; color:var(--muted);
+}
+.pill.on { border-color:var(--blue); color:var(--blue); background:rgba(37,99,235,.06); }
+
+/* ─── INSTALL ─────────────────────────────────────────── */
+.install-inner {
+  display:grid; grid-template-columns:1fr 1px 1fr;
+  min-height:380px;
+}
+.install-left {
+  padding: 60px 40px;
+  display:flex; flex-direction:column; justify-content:center;
+}
+.install-vr { background:var(--rule); }
+.install-right {
+  padding: 60px 40px;
+  display:flex; flex-direction:column; gap:16px; justify-content:center;
+}
+
+.install-title {
+  font-family:var(--F);
+  font-size: clamp(60px,7vw,100px);
+  line-height:.88; letter-spacing:-.02em;
+}
+.install-title span { color:var(--blue); }
+.install-sub { color:var(--muted); font-size:14px; margin-top:16px; }
+
+.btn-big {
+  display:flex; align-items:center; gap:14px;
+  border:2px solid var(--ink); padding:18px 28px;
+  font-family:var(--M); font-size:14px; text-decoration:none; color:var(--ink);
+  transition:all .2s; position:relative;
+}
+.btn-big:hover { background:var(--ink); color:var(--paper); }
+.btn-big.primary {
+  background:var(--blue); border-color:var(--blue); color:#fff;
+}
+.btn-big.primary:hover { background:#1748c8; border-color:#1748c8; }
+.btn-arrow { margin-left:auto; font-size:20px; transition:transform .2s; }
+.btn-big:hover .btn-arrow { transform:translateX(4px); }
+.btn-label-big { font-family:var(--F); font-size:18px; letter-spacing:.04em; }
+.btn-label-small { font-size:11px; letter-spacing:.08em; color:var(--muted); }
+.btn-big.primary .btn-label-small { color:rgba(255,255,255,.65); }
+
+/* ─── FOOTER ──────────────────────────────────────────── */
+footer {
+  padding: 24px 40px;
+  display:flex; justify-content:space-between; align-items:center;
+  flex-wrap:wrap; gap:12px;
+  font-size:11px; letter-spacing:.06em; color:var(--muted);
+}
+footer a { color:var(--muted); text-decoration:none; }
+footer a:hover { color:var(--ink); }
+.footer-links { display:flex; gap:28px; }
+
+/* ─── RESPONSIVE ──────────────────────────────────────── */
+@media (max-width:900px) {
+  nav { padding:0 20px; }
+  .nav-links { display:none; }
+  .hero-top { grid-template-columns:1fr; }
+  .hero-vr { display:none; }
+  .hero-left, .hero-right { padding: 40px 20px; }
+  .hero-bar { grid-template-columns:1fr; }
+  .hero-stat { border-right:none; border-bottom:1px solid var(--rule); }
+  .wrap { padding:0 20px; }
+  .feat-row { grid-template-columns: 48px 1fr; }
+  .feat-desc { display:none; }
+  .compare-grid { grid-template-columns:1fr; }
+  .compare-vr { display:none; }
+  .compare-col { padding: 24px 0; border-bottom:2px solid var(--ink); }
+  .privacy-inner { grid-template-columns:1fr; }
+  .privacy-left { border-right:none; border-bottom:2px solid var(--ink); }
+  .install-inner { grid-template-columns:1fr; }
+  .install-vr { display:none; }
+  footer { flex-direction:column; align-items:flex-start; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-brand" href="#">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="28" height="28">
+      <circle cx="50" cy="50" r="45" fill="#2563eb"/>
+      <path d="M35 50 Q35 35, 50 35 L65 35 Q80 35, 80 50 Q80 65, 65 65 L60 65" fill="none" stroke="#fff" stroke-width="8" stroke-linecap="round"/>
+      <path d="M65 50 Q65 65, 50 65 L35 65 Q20 65, 20 50 Q20 35, 35 35 L40 35" fill="none" stroke="#fff" stroke-width="8" stroke-linecap="round"/>
+      <polygon points="75,20 78,28 86,31 78,34 75,42 72,34 64,31 72,28" fill="#fff"/>
+    </svg>
+    Linkumori
+  </a>
+  <div class="nav-links">
+    <a href="#features">Features</a>
+    <a href="#compare">Compare</a>
+    <a href="#privacy">Privacy</a>
+  </div>
+  <a class="nav-install" href="https://addons.mozilla.org/en-US/firefox/addon/linkumori-clean-urls/" target="_blank">Install for Firefox</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="hero-top">
+
+    <!-- LEFT: Headline -->
+    <div class="hero-left">
+      <div>
+        <div class="hero-eyebrow">Firefox Extension · Manifest V3 · Zero data collected</div>
+        <h1>STRIP<br>THE<br><em>TRACK</em><br>ERS.</h1>
+      </div>
+      <p class="hero-desc">
+        Linkumori strips tracking parameters from every URL — silently,
+        instantly. No redirects. No reloads. No noise.<br>Built where ClearURLs left off.
+      </p>
+    </div>
+
+    <!-- Vertical rule -->
+    <div class="hero-vr"></div>
+
+    <!-- RIGHT: URL demo -->
+    <div class="hero-right">
+      <div class="url-demo-label">Live demonstration</div>
+
+      <div class="url-demo-box">
+        <div class="url-full">
+          <span class="url-clean">https://amazon.com/dp/B09XYZ</span><span class="url-sep">?</span><span class="url-params"><span class="param">ref=sxin_0_pb</span><span class="url-sep">&amp;</span><span class="param">pd_rd_r=8d39e4</span><span class="url-sep">&amp;</span><span class="param">pd_rd_w=1pcKM</span><span class="url-sep">&amp;</span><span class="param">utm_source=amz</span><span class="url-sep">&amp;</span><span class="param">utm_medium=feed</span><span class="url-sep">&amp;</span><span class="param">utm_campaign=deals</span><span class="url-sep">&amp;</span><span class="param">pf_rd_p=50bbfd25</span></span>
+        </div>
+      </div>
+
+      <div class="url-result">
+        <div class="url-full">https://amazon.com/dp/B09XYZ</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STAT BAR -->
+  <div class="hero-bar">
+    <div class="hero-stat">
+      <span class="stat-n blue">62+</span>
+      <span class="stat-l">Languages supported</span>
+    </div>
+    <div class="hero-stat">
+      <span class="stat-n">MV3</span>
+      <span class="stat-l">Firefox native — future-proof</span>
+    </div>
+    <div class="hero-stat">
+      <span class="stat-n blue">0</span>
+      <span class="stat-l">Bytes of data collected, ever</span>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="section" id="features">
+  <div class="wrap">
+    <div class="s-head">
+      <span class="s-num">01 ——</span>
+      <h2 class="s-title">WHAT IT <em>DOES</em></h2>
+    </div>
+    <div class="feat-list">
+
+      <div class="feat-row">
+        <div class="feat-index">01</div>
+        <div class="feat-name">Instant URL Cleaning</div>
+        <div class="feat-desc">Every URL is cleaned before it loads. Tracking parameters stripped in real time — no redirect, no reload, no visible interruption.</div>
+      </div>
+
+      <div class="feat-row">
+        <div class="feat-index">02</div>
+        <div class="feat-name">Per-Domain Whitelist <span class="new-flag">New</span></div>
+        <div class="feat-desc">Exclude any domain from cleaning in one click. Stop disabling the entire extension because a single site misbehaves.</div>
+      </div>
+
+      <div class="feat-row">
+        <div class="feat-index">03</div>
+        <div class="feat-name">Custom Rules <span class="new-flag">New</span></div>
+        <div class="feat-desc">Write rules that override built-in or remote sources. Disable specific rules without creating counter-rules — then restore them anytime.</div>
+      </div>
+
+      <div class="feat-row">
+        <div class="feat-index">04</div>
+        <div class="feat-name">Multiple Rule Sources <span class="new-flag">New</span></div>
+        <div class="feat-desc">Load and merge several remote rule sets simultaneously. Overload mode merges built-in and remote rules before applying your custom rules on top.</div>
+      </div>
+
+      <div class="feat-row">
+        <div class="feat-index">05</div>
+        <div class="feat-name">History API Protection</div>
+        <div class="feat-desc">Catches URLs that bypass network-level rules entirely by being pushed via the browser's History API.</div>
+      </div>
+
+      <div class="feat-row">
+        <div class="feat-index">06</div>
+        <div class="feat-name">ETag &amp; Ping Blocking</div>
+        <div class="feat-desc">Blocks hyperlink auditing pings and ETag-based tracking across sessions — attack vectors most extensions ignore.</div>
+      </div>
+
+      <div class="feat-row">
+        <div class="feat-index">07</div>
+        <div class="feat-name">Search Engine Fix</div>
+        <div class="feat-desc">Strips tracking wrappers injected into Google and Yandex search results before you ever click a link.</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- COMPARE -->
+<section class="section" id="compare">
+  <div class="wrap">
+    <div class="s-head">
+      <span class="s-num">02 ——</span>
+      <h2 class="s-title">VS <em>CLEARURLS</em></h2>
+    </div>
+
+    <div class="compare-grid">
+      <!-- ClearURLs col -->
+      <div class="compare-col">
+        <div class="compare-col-head dim">ClearURLs</div>
+        <div class="compare-item"><span class="ci-mark" style="color:var(--muted)">—</span><span class="ci-text">Last updated <strong>Feb 2025</strong> — effectively unmaintained</span></div>
+        <div class="compare-item"><span class="ci-mark" style="color:var(--muted)">—</span><span class="ci-text">No per-domain whitelist — <strong>4-year open issue</strong></span></div>
+        <div class="compare-item"><span class="ci-mark" style="color:var(--muted)">—</span><span class="ci-text">No custom rule override support</span></div>
+        <div class="compare-item"><span class="ci-mark" style="color:var(--muted)">—</span><span class="ci-text">No ability to disable specific rules</span></div>
+        <div class="compare-item"><span class="ci-mark" style="color:var(--muted)">—</span><span class="ci-text">Single remote rule source</span></div>
+        <div class="compare-item"><span class="ci-mark" style="color:var(--muted)">—</span><span class="ci-text">Not built natively for Firefox MV3</span></div>
+        <div class="compare-item"><span class="ci-mark" style="color:var(--muted)">✓</span><span class="ci-text">Solid core: removes tracking params, blocks ping</span></div>
+      </div>
+
+      <div class="compare-vr"></div>
+
+      <!-- Linkumori col -->
+      <div class="compare-col">
+        <div class="compare-col-head bright">Linkumori</div>
+        <div class="compare-item"><span class="ci-mark" style="color:var(--blue)">✓</span><span class="ci-text"><strong>Actively developed</strong> — regular releases in 2025</span></div>
+        <div class="compare-item"><span class="ci-mark" style="color:var(--blue)">✓</span><span class="ci-text"><strong>Per-domain whitelist</strong> — one click, done</span></div>
+        <div class="compare-item"><span class="ci-mark" style="color:var(--blue)">✓</span><span class="ci-text"><strong>Custom rules</strong> that override built-in and remote sets</span></div>
+        <div class="compare-item"><span class="ci-mark" style="color:var(--blue)">✓</span><span class="ci-text"><strong>Disable &amp; restore</strong> individual rules without workarounds</span></div>
+        <div class="compare-item"><span class="ci-mark" style="color:var(--blue)">✓</span><span class="ci-text"><strong>Multiple remote sources</strong> with overload merge mode</span></div>
+        <div class="compare-item"><span class="ci-mark" style="color:var(--blue)">✓</span><span class="ci-text"><strong>Firefox MV3 native</strong> — built for the future of extensions</span></div>
+        <div class="compare-item"><span class="ci-mark" style="color:var(--blue)">✓</span><span class="ci-text">Everything ClearURLs does, plus the above</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRIVACY -->
+<section class="section" id="privacy">
+  <div class="wrap" style="padding:0">
+    <div class="s-head" style="padding-left:40px">
+      <span class="s-num">03 ——</span>
+      <h2 class="s-title">PRIV<em>ACY</em></h2>
+    </div>
+  </div>
+  <div class="privacy-inner">
+    <!-- Dark left panel -->
+    <div class="privacy-left">
+      <div>
+        <div class="priv-title">ZERO<br><span>DATA</span><br>POLICY.</div>
+      </div>
+      <div>
+        <div class="priv-zero">0</div>
+        <div class="priv-zero-label">bytes collected from you</div>
+      </div>
+      <ul class="priv-points">
+        <li>No telemetry</li>
+        <li>No analytics</li>
+        <li>No usage tracking</li>
+        <li>100% local processing</li>
+      </ul>
+    </div>
+
+    <!-- Right content -->
+    <div class="privacy-right">
+      <div class="priv-body">
+        <h3>All processing happens in your browser.</h3>
+        <p>
+          Linkumori never phones home. URL cleaning runs entirely inside your
+          browser's extension runtime. Nothing you visit is logged, reported, or
+          analyzed — not even anonymously.
+        </p>
+        <p>
+          Remote rule sources are <strong>disabled by default</strong>. They're an
+          opt-in feature for advanced users who run their own infrastructure.
+          When enabled, you point Linkumori at a server you control —
+          no third party has visibility.
+        </p>
+        <div class="pill-row">
+          <span class="pill on">Open Source</span>
+          <span class="pill on">LGPL-3.0</span>
+          <span class="pill on">No telemetry</span>
+          <span class="pill">Firefox Add-ons listed</span>
+          <span class="pill">62+ locales</span>
+          <span class="pill">Forked from ClearURLs</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INSTALL -->
+<section class="section" id="install">
+  <div class="wrap" style="padding:0">
+    <div class="s-head" style="padding-left:40px">
+      <span class="s-num">04 ——</span>
+      <h2 class="s-title">GET <em>IT</em></h2>
+    </div>
+  </div>
+  <div class="install-inner">
+    <div class="install-left">
+      <div class="install-title">IN<br><span>STALL</span><br>NOW.</div>
+      <p class="install-sub">One click. No configuration needed.<br>It works silently from the moment you install.</p>
+    </div>
+    <div class="install-vr"></div>
+    <div class="install-right">
+      <a class="btn-big primary" href="https://addons.mozilla.org/en-US/firefox/addon/linkumori-clean-urls/" target="_blank">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="32" height="32">
+          <circle cx="50" cy="50" r="45" fill="rgba(255,255,255,.2)"/>
+          <path d="M35 50 Q35 35, 50 35 L65 35 Q80 35, 80 50 Q80 65, 65 65 L60 65" fill="none" stroke="#fff" stroke-width="8" stroke-linecap="round"/>
+          <path d="M65 50 Q65 65, 50 65 L35 65 Q20 65, 20 50 Q20 35, 35 35 L40 35" fill="none" stroke="#fff" stroke-width="8" stroke-linecap="round"/>
+          <polygon points="75,20 78,28 86,31 78,34 75,42 72,34 64,31 72,28" fill="#fff"/>
+        </svg>
+        <div>
+          <div class="btn-label-big">Firefox Add-ons</div>
+          <div class="btn-label-small">addons.mozilla.org — free, verified</div>
+        </div>
+        <span class="btn-arrow">→</span>
+      </a>
+
+      <a class="btn-big" href="https://github.com/Linkumori/Linkumori-Addon/releases" target="_blank">
+        <svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor">
+          <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
+        </svg>
+        <div>
+          <div class="btn-label-big">GitHub Releases</div>
+          <div class="btn-label-small">Download signed .xpi directly</div>
+        </div>
+        <span class="btn-arrow">→</span>
+      </a>
+
+      <a class="btn-big" href="https://github.com/Linkumori/Linkumori-Addon" target="_blank">
+        <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+          <polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/>
+        </svg>
+        <div>
+          <div class="btn-label-big">View Source</div>
+          <div class="btn-label-small">github.com/Linkumori/Linkumori-Addon</div>
+        </div>
+        <span class="btn-arrow">→</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div>Linkumori — Clean URLs for Firefox. Forked from <a href="https://github.com/ClearURLs/Addon">ClearURLs</a>. Licensed LGPL-3.0.</div>
+  <div class="footer-links">
+    <a href="https://github.com/Linkumori/Linkumori-Addon/blob/main/privacy.md" target="_blank">Privacy</a>
+    <a href="https://github.com/Linkumori/Linkumori-Addon/blob/main/SECURITY.md" target="_blank">Security</a>
+    <a href="https://github.com/Linkumori/Linkumori-Addon/blob/main/CHANGELOG.md" target="_blank">Changelog</a>
+    <a href="https://github.com/Linkumori/Linkumori-Addon/issues" target="_blank">Issues</a>
+  </div>
+</footer>
+
+<script>
+  // Scroll fade-in for feature rows
+  const rows = document.querySelectorAll('.feat-row');
+  const io = new IntersectionObserver(entries => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        const idx = [...rows].indexOf(e.target);
+        setTimeout(() => e.target.classList.add('vis'), idx * 60);
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  rows.forEach(r => io.observe(r));
+</script>
+</body>
+</html>
