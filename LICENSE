@@ -1,67 +1,182 @@
-Web License
+License
 Copyright 2026 Subham Mahesh
 
-"These implementations" means the copyrightable works covered by this license.
-Redistribution and use of these implementations in source and binary forms,
-with or without modification, are permitted provided that the following
-conditions are met:
+DEFINITIONS
 
-1. PATENT LICENSE: The copyright holder hereby grants to you a perpetual,
-   worldwide, non-exclusive, no-charge, royalty-free, irrevocable (except as
-   stated in this section) patent license to make, have made, use, offer to
-   sell, sell, import, transfer, and otherwise run, modify, and propagate the
-   contents of these implementations, where such license applies only to those
-   patent claims, both currently owned by the copyright holder and acquired in
-   the future, licensable by the copyright holder that are necessarily infringed
-   by these implementations. This grant does not include claims that would be
-   infringed only as a consequence of further modification of these
-   implementations. If you or your agent or exclusive licensee institute or
-   order or agree to the institution of patent litigation or any other patent
+"Work" means the copyrightable works covered by this license.
+
+"You" (or "Your") means an individual or Legal Entity exercising permissions
+granted by this license.
+
+"Licensor" means the copyright holder or entity authorized by the copyright
+holder that is granting this license.
+
+"Legal Entity" shall mean the union of the acting entity and all other
+entities that control, are controlled by, or are under common control with
+that entity. For the purposes of this definition, "control" means (i) the
+power, direct or indirect, to cause the direction or management of such
+entity, whether by contract or otherwise, or (ii) ownership of fifty percent
+(50%) or more of the outstanding shares, or (iii) beneficial ownership of
+such entity.
+
+"Contributor" shall mean the Licensor and any individual or Legal Entity on
+behalf of whom a Contribution has been received by the Licensor and
+subsequently incorporated within the Work.
+
+"Contribution" shall mean any work of authorship, including the original
+version of the Work and any modifications or additions to that Work or
+Derivative Works thereof, that is intentionally submitted to the Licensor
+for inclusion in the Work by the copyright owner or by an individual or
+Legal Entity authorized to submit on behalf of the copyright owner. For the
+purposes of this definition, "submitted" means any form of electronic,
+verbal, or written communication sent to the Licensor or its representatives,
+including but not limited to communication on electronic mailing lists, source
+code control systems, and issue tracking systems that are managed by, or on
+behalf of, the Licensor for the purpose of discussing and improving the Work,
+but excluding communication that is conspicuously marked or otherwise
+designated in writing by the copyright owner as "Not a Contribution."
+
+"Derivative Works" shall mean any work, whether in Source Code Form or Binary
+Form, that is based on (or derived from) the Work and for which the editorial
+revisions, annotations, elaborations, or other modifications represent, as a
+whole, an original work of authorship. For the purposes of this license,
+Derivative Works shall not include works that remain separable from, or merely
+link (or bind by name) to the interfaces of, the Work and Derivative Works
+thereof.
+
+"Source Code Form" means the preferred form of the Work for making
+modifications, including but not limited to human-readable source code,
+documentation source, and configuration files.
+
+"Binary Form" means any form of the Work resulting from mechanical
+transformation or translation of a Source Code Form, including but not
+limited to compiled object code, minified or transpiled code, generated
+documentation, and conversions to other media types.
+
+"Publicly Accessible" means accessible to the general public via the internet
+without requiring authentication or membership in a restricted group.
+
+"Publicly Displayed or Performed" means made available to the general public
+through a website, web application, or other publicly reachable medium without
+access restriction.
+
+Redistribution and use of the Work in Source Code Form and Binary Form, with
+or without modification, are permitted provided that the following conditions
+are met:
+
+1. GRANT OF COPYRIGHT LICENSE. Subject to the terms and conditions of this
+   license, each Contributor hereby grants to You a perpetual, worldwide,
+   non-exclusive, no-charge, royalty-free, irrevocable copyright license to
+   reproduce, prepare Derivative Works of, publicly display, publicly perform,
+   sublicense, and distribute the Work and such Derivative Works in Source
+   Code Form or Binary Form. You must retain, in the Source Code Form of any
+   Derivative Works that You distribute, all copyright, patent, trademark, and
+   attribution notices from the Source Code Form of the Work, excluding those
+   notices that do not pertain to any part of the Derivative Works. You may
+   add Your own copyright statement to Your modifications and may provide
+   additional or different license terms and conditions for use, reproduction,
+   or distribution of Your modifications, or for any such Derivative Works as
+   a whole, provided Your use, reproduction, and distribution of the Work
+   otherwise complies with the conditions stated in this license.
+
+2. GRANT OF PATENT LICENSE. Subject to the terms and conditions of this
+   license, each Contributor hereby grants to You a perpetual, worldwide,
+   non-exclusive, no-charge, royalty-free, irrevocable (except as stated in
+   this section) patent license to make, have made, use, offer to sell, sell,
+   import, transfer, and otherwise run, modify, and propagate the Work, where
+   such license applies only to those patent claims, both currently owned by
+   the Contributor and acquired in the future, licensable by such Contributor
+   that are necessarily infringed by their Contribution(s) alone or by
+   combination of their Contribution(s) with the Work to which such
+   Contribution(s) was submitted. This grant does not include claims that
+   would be infringed only as a consequence of further modification of the
+   Work. If You or Your agent or exclusive licensee institute or order or
+   agree to the institution of patent litigation or any other patent
    enforcement activity against any entity (including a cross-claim or
-   counterclaim in a lawsuit) alleging that any of these implementations or any
-   code incorporated within any of these implementations constitute direct or
-   contributory patent infringement, or inducement of patent infringement, then
-   any patent rights granted to you under this license for these implementations
-   shall terminate as of the date such litigation is filed.
+   counterclaim in a lawsuit) alleging that the Work or any Contribution
+   incorporated within the Work constitutes direct or contributory patent
+   infringement, or inducement of patent infringement, then any patent rights
+   granted to You under this license for the Work shall terminate as of the
+   date such litigation is filed.
 
-2. Redistributions of these implementations in source code form must retain
-   the above copyright notice, this list of conditions and the following
-   disclaimer.
+3. REDISTRIBUTIONS IN SOURCE CODE FORM. Redistributions of the Work in
+   Source Code Form must retain the above copyright notice, this list of
+   conditions, and the following disclaimer.
 
-3. For the purposes of this license, redistribution of these implementations
-   via a website or webpage is defined as occurring only when a user's browser
-   automatically downloads the source code or binary of these implementations
-   as part of loading, rendering, or executing that webpage. Where such
-   redistribution takes place on a publicly accessible website or webpage,
-   the above copyright notice, this list of conditions, and the following
-   disclaimer must be reproduced on at least one publicly accessible webpage
-   served from the same registered domain as the redistributing webpage, where
-   "registered domain" means the hostname without any path, query, or fragment
-   component (for example, the registered domain of
-   https://example.com/app/page is example.com). Such notice need not appear
-   on the same webpage as the redistribution, provided it is accessible at a
-   stable URL on that same registered domain and that URL is either disclosed
-   in the source code of the redistributing webpage or reasonably discoverable
-   from it.
+4. REDISTRIBUTIONS VIA WEBSITE OR WEBPAGE. For the purposes of this license,
+   redistribution of the Work via a website or webpage is defined as occurring
+   only when a user's browser automatically downloads the Source Code Form or
+   Binary Form of the Work as part of loading, rendering, or executing that
+   webpage. Where such redistribution takes place on a Publicly Accessible
+   website or webpage, the following conditions apply:
 
-4. Redistributions of these implementations in binary form used for any
-   purpose other than a publicly displayed or performed website or webpage
-   must reproduce the above copyright notice, this list of conditions, and
-   the following disclaimer in the documentation and/or other materials
-   provided with the distribution.
+   (a) REGISTERED DOMAIN. "Registered domain" means the effective top-level
+       domain plus one additional label (eTLD+1) as determined by the Public
+       Suffix List (https://publicsuffix.org). Under this definition,
+       example.com, docs.example.com, and cdn.example.com all share the
+       registered domain example.com. Where the Public Suffix List is
+       ambiguous or inapplicable, "registered domain" means the lowest-level
+       domain label that is not itself a public suffix.
 
-5. Neither the name of the copyright holder nor the names of its contributors
-   may be used to endorse or promote products derived from these
-   implementations without specific prior written permission.
+   (b) NOTICE REQUIREMENT. The above copyright notice, this list of
+       conditions, and the following disclaimer must be reproduced on at least
+       one Publicly Accessible webpage served from the same registered domain
+       as the webpage that causes the download. Such notice need not appear on
+       the same webpage as the redistribution, provided it is accessible at a
+       stable URL on that registered domain and that URL is either disclosed in
+       the Source Code Form of the redistributing webpage or reasonably
+       discoverable from it. A notice served from any subdomain of the
+       registered domain satisfies this requirement.
 
-THESE IMPLEMENTATIONS ARE PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
-"AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO,
-THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
-ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE
-LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
-CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
-SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
-INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
-CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
-ARISING IN ANY WAY OUT OF THE USE OF THESE IMPLEMENTATIONS, EVEN IF ADVISED
-OF THE POSSIBILITY OF SUCH DAMAGE.
+   (c) CONTENT DELIVERY NETWORKS. Where the Work is served from a CDN or
+       third-party hosting service operating under a registered domain
+       different from that of the embedding webpage, the redistribution
+       obligation under this section falls on the operator of the embedding
+       webpage, not on the CDN or hosting service, provided that the CDN or
+       hosting service: (i) serves the Work without modification to its
+       content; and (ii) does so solely at the direction of the embedding
+       party. A CDN operated by the same Legal Entity as the embedding webpage
+       but under a different registered domain may satisfy this section's
+       notice requirement by publication on either the CDN domain or the
+       embedding webpage's domain, provided the notice remains Publicly
+       Accessible.
+
+   (d) BUNDLED AND TRANSPILED DISTRIBUTIONS. Where the Work has been
+       mechanically transformed, minified, concatenated, or otherwise combined
+       with other code into a Binary Form and served as part of a webpage, the
+       notice requirement of subsection (b) applies to the operator of that
+       webpage. Such notice may alternatively be embedded as a comment within
+       the served Binary Form itself, provided the comment is not stripped or
+       obscured prior to delivery to the user's browser.
+
+5. REDISTRIBUTIONS IN BINARY FORM — NON-WEB. Redistributions of the Work in
+   Binary Form used for any purpose other than a Publicly Displayed or
+   Performed website or webpage must reproduce the above copyright notice,
+   this list of conditions, and the following disclaimer in the documentation
+   and/or other materials provided with the distribution.
+
+6. SUBMISSION OF CONTRIBUTIONS. Unless You explicitly state otherwise, any
+   Contribution intentionally submitted for inclusion in the Work by You to
+   the Licensor shall be under the terms and conditions of this license,
+   without any additional terms or conditions. Notwithstanding the above,
+   nothing herein shall supersede or modify the terms of any separate license
+   agreement you may have executed with the Licensor regarding such
+   Contributions.
+
+7. TRADEMARKS. This license does not grant permission to use the trade names,
+   trademarks, service marks, or product names of the Licensor or its
+   Contributors, except as required for reasonable and customary use in
+   describing the origin of the Work. Neither the name of the copyright holder
+   nor the names of its Contributors may be used to endorse or promote products
+   derived from the Work without specific prior written permission.
+
+THE WORK IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
+FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+OF THE WORK, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
