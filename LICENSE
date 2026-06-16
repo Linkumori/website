@@ -1,15 +1,21 @@
-License
 Copyright 2026 Subham Mahesh
+
+Linkumori Free License
+Version 1.0, June 2026
+
 
 DEFINITIONS
 
-"Work" means the copyrightable works covered by this license.
+"License" shall mean the terms and conditions for use, reproduction, and
+distribution as defined in this document.
+
+"Work" means the copyrightable works covered by this License.
 
 "You" (or "Your") means an individual or Legal Entity exercising permissions
-granted by this license.
+granted by this License.
 
 "Licensor" means the copyright holder or entity authorized by the copyright
-holder that is granting this license.
+holder that is granting this License.
 
 "Legal Entity" shall mean the union of the acting entity and all other
 entities that control, are controlled by, or are under common control with
@@ -25,21 +31,21 @@ subsequently incorporated within the Work.
 
 "Contribution" shall mean any work of authorship, including the original
 version of the Work and any modifications or additions to that Work or
-Derivative Works thereof, that is intentionally submitted to the Licensor
-for inclusion in the Work by the copyright owner or by an individual or
-Legal Entity authorized to submit on behalf of the copyright owner. For the
-purposes of this definition, "submitted" means any form of electronic,
-verbal, or written communication sent to the Licensor or its representatives,
-including but not limited to communication on electronic mailing lists, source
-code control systems, and issue tracking systems that are managed by, or on
-behalf of, the Licensor for the purpose of discussing and improving the Work,
-but excluding communication that is conspicuously marked or otherwise
-designated in writing by the copyright owner as "Not a Contribution."
+Derivative Works thereof, that is intentionally submitted to the Licensor for
+inclusion in the Work by the copyright owner or by an individual or Legal
+Entity authorized to submit on behalf of the copyright owner. For the purposes
+of this definition, "submitted" means any form of electronic, verbal, or
+written communication sent to the Licensor or its representatives, including
+but not limited to communication on electronic mailing lists, source code
+control systems, and issue tracking systems that are managed by, or on behalf
+of, the Licensor for the purpose of discussing and improving the Work, but
+excluding communication that is conspicuously marked or otherwise designated
+in writing by the copyright owner as "Not a Contribution."
 
 "Derivative Works" shall mean any work, whether in Source Code Form or Binary
 Form, that is based on (or derived from) the Work and for which the editorial
 revisions, annotations, elaborations, or other modifications represent, as a
-whole, an original work of authorship. For the purposes of this license,
+whole, an original work of authorship. For the purposes of this License,
 Derivative Works shall not include works that remain separable from, or merely
 link (or bind by name) to the interfaces of, the Work and Derivative Works
 thereof.
@@ -65,7 +71,7 @@ or without modification, are permitted provided that the following conditions
 are met:
 
 1. GRANT OF COPYRIGHT LICENSE. Subject to the terms and conditions of this
-   license, each Contributor hereby grants to You a perpetual, worldwide,
+   License, each Contributor hereby grants to You a perpetual, worldwide,
    non-exclusive, no-charge, royalty-free, irrevocable copyright license to
    reproduce, prepare Derivative Works of, publicly display, publicly perform,
    sublicense, and distribute the Work and such Derivative Works in Source
@@ -77,15 +83,15 @@ are met:
    additional or different license terms and conditions for use, reproduction,
    or distribution of Your modifications, or for any such Derivative Works as
    a whole, provided Your use, reproduction, and distribution of the Work
-   otherwise complies with the conditions stated in this license.
+   otherwise complies with the conditions stated in this License.
 
 2. GRANT OF PATENT LICENSE. Subject to the terms and conditions of this
-   license, each Contributor hereby grants to You a perpetual, worldwide,
+   License, each Contributor hereby grants to You a perpetual, worldwide,
    non-exclusive, no-charge, royalty-free, irrevocable (except as stated in
    this section) patent license to make, have made, use, offer to sell, sell,
    import, transfer, and otherwise run, modify, and propagate the Work, where
    such license applies only to those patent claims, both currently owned by
-   the Contributor and acquired in the future, licensable by such Contributor
+   the Contributor and acquired in future, licensable by such Contributor
    that are necessarily infringed by their Contribution(s) alone or by
    combination of their Contribution(s) with the Work to which such
    Contribution(s) was submitted. This grant does not include claims that
@@ -96,14 +102,14 @@ are met:
    counterclaim in a lawsuit) alleging that the Work or any Contribution
    incorporated within the Work constitutes direct or contributory patent
    infringement, or inducement of patent infringement, then any patent rights
-   granted to You under this license for the Work shall terminate as of the
+   granted to You under this License for the Work shall terminate as of the
    date such litigation is filed.
 
 3. REDISTRIBUTIONS IN SOURCE CODE FORM. Redistributions of the Work in
    Source Code Form must retain the above copyright notice, this list of
    conditions, and the following disclaimer.
 
-4. REDISTRIBUTIONS VIA WEBSITE OR WEBPAGE. For the purposes of this license,
+4. REDISTRIBUTIONS VIA WEBSITE OR WEBPAGE. For the purposes of this License,
    redistribution of the Work via a website or webpage is defined as occurring
    only when a user's browser automatically downloads the Source Code Form or
    Binary Form of the Work as part of loading, rendering, or executing that
@@ -123,8 +129,8 @@ are met:
        one Publicly Accessible webpage served from the same registered domain
        as the webpage that causes the download. Such notice need not appear on
        the same webpage as the redistribution, provided it is accessible at a
-       stable URL on that registered domain and that URL is either disclosed in
-       the Source Code Form of the redistributing webpage or reasonably
+       stable URL on that registered domain and that URL is either disclosed
+       in the Source Code Form of the redistributing webpage or reasonably
        discoverable from it. A notice served from any subdomain of the
        registered domain satisfies this requirement.
 
@@ -157,18 +163,33 @@ are met:
 
 6. SUBMISSION OF CONTRIBUTIONS. Unless You explicitly state otherwise, any
    Contribution intentionally submitted for inclusion in the Work by You to
-   the Licensor shall be under the terms and conditions of this license,
+   the Licensor shall be under the terms and conditions of this License,
    without any additional terms or conditions. Notwithstanding the above,
    nothing herein shall supersede or modify the terms of any separate license
-   agreement you may have executed with the Licensor regarding such
+   agreement You may have executed with the Licensor regarding such
    Contributions.
 
-7. TRADEMARKS. This license does not grant permission to use the trade names,
+7. TRADEMARKS. This License does not grant permission to use the trade names,
    trademarks, service marks, or product names of the Licensor or its
    Contributors, except as required for reasonable and customary use in
    describing the origin of the Work. Neither the name of the copyright holder
    nor the names of its Contributors may be used to endorse or promote products
    derived from the Work without specific prior written permission.
+
+8. INTELLECTUAL PROPERTY DISCLAIMER AND RECIPIENT RESPONSIBILITY. You
+   understand that although each Contributor grants the licenses to its
+   Contributions set forth herein, no assurances are provided by any
+   Contributor that the Work does not infringe the patent or other intellectual
+   property rights of any other entity. Each Contributor disclaims any
+   liability to You for claims brought by any other entity based on
+   infringement of intellectual property rights or otherwise. As a condition
+   to exercising the rights and licenses granted hereunder, You hereby assume
+   sole responsibility to secure any other intellectual property rights needed,
+   if any. For example, if a third-party patent license is required to allow
+   You to distribute the Work, it is Your responsibility to acquire that
+   license before distributing the Work. Each Contributor represents that, to
+   its knowledge, it has sufficient copyright rights in its Contribution, if
+   any, to grant the copyright license set forth in this License.
 
 THE WORK IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
 ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
@@ -180,3 +201,57 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THE WORK, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+───────────────────────────────────────────────────────────────────────────────
+
+APPENDIX: How to Apply the Linkumori Free License to Your Work
+
+The copyright notice at the top of this document applies only to the text of
+the License itself. It does not govern any Work You choose to release under
+this License. To apply the Linkumori Free License to Your own Work, attach the
+following notice to each file, replacing the bracketed fields with Your own
+information. Do not include the brackets.
+
+    Copyright [YEAR] [YOUR NAME OR ORGANIZATION]
+
+    Licensed under the Linkumori Free License, Version 1.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at:
+
+        [URL WHERE YOU HOST THE LICENSE TEXT]
+
+    Unless required by applicable law or agreed to in writing, the Work
+    distributed under the License is provided on an "AS IS" BASIS, WITHOUT
+    WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+    License for the specific language governing permissions and limitations
+    under the License.
+
+For source files, place this notice at the top of each file.
+
+For binary distributions (non-web), reproduce this notice in the
+documentation or other materials provided with the distribution, as required
+by Section 5 of the License.
+
+For web distributions, place this notice on at least one Publicly Accessible
+page of the same registered domain serving the Work, as required by Section 4
+of the License. A dedicated /licenses or /credits page is a common and
+acceptable location.
+
+If Your Work has multiple copyright holders (for example, where Contributors
+have added to the original), each holder's copyright should be listed on a
+separate line:
+
+    Copyright [YEAR] [ORIGINAL AUTHOR]
+    Copyright [YEAR] [CONTRIBUTOR NAME]
+
+    Licensed under the Linkumori Free License, Version 1.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at:
+
+        [URL WHERE YOU HOST THE LICENSE TEXT]
+
+    Unless required by applicable law or agreed to in writing, the Work
+    distributed under the License is provided on an "AS IS" BASIS, WITHOUT
+    WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+    License for the specific language governing permissions and limitations
+    under the License.
