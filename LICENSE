@@ -116,13 +116,11 @@ are met:
    webpage. Where such redistribution takes place on a Publicly Accessible
    website or webpage, the following conditions apply:
 
-   (a) REGISTERED DOMAIN. "Registered domain" means the effective top-level
-       domain plus one additional label (eTLD+1) as determined by the Public
-       Suffix List (https://publicsuffix.org). Under this definition,
-       example.com, docs.example.com, and cdn.example.com all share the
-       registered domain example.com. Where the Public Suffix List is
-       ambiguous or inapplicable, "registered domain" means the lowest-level
-       domain label that is not itself a public suffix.
+   (a) REGISTERED DOMAIN. "Registered domain" means any domain and its subdomains
+   that a reasonable person would recognize as being operated by the same Legal Entity.
+   For example, example.com, docs.example.com,and cdn.example.comare all considered to 
+   share the same registered domain. Where ownership or operation of a domain is ambiguous,
+   the determination shall be made in favor of the party seeking to comply with this License.
 
    (b) NOTICE REQUIREMENT. The copyright notice, this list of
        conditions, and the following disclaimer must be reproduced on at least
