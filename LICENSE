@@ -1,9 +1,7 @@
 Web License
 Copyright 2026 Subham Mahesh
 
-
 "These implementations" means the copyrightable works covered by this license.
-
 Redistribution and use of these implementations in source and binary forms,
 with or without modification, are permitted provided that the following
 conditions are met:
@@ -36,7 +34,15 @@ conditions are met:
    as part of loading, rendering, or executing that webpage. Where such
    redistribution takes place on a publicly accessible website or webpage,
    the above copyright notice, this list of conditions, and the following
-   disclaimer must be reproduced on that same webpage.
+   disclaimer must be reproduced on at least one publicly accessible webpage
+   served from the same registered domain as the redistributing webpage, where
+   "registered domain" means the hostname without any path, query, or fragment
+   component (for example, the registered domain of
+   https://example.com/app/page is example.com). Such notice need not appear
+   on the same webpage as the redistribution, provided it is accessible at a
+   stable URL on that same registered domain and that URL is either disclosed
+   in the source code of the redistributing webpage or reasonably discoverable
+   from it.
 
 4. Redistributions of these implementations in binary form used for any
    purpose other than a publicly displayed or performed website or webpage
